@@ -62,7 +62,7 @@ class CommanderServiceProvider extends ServiceProvider {
      */
     public function registerArtisanCommand()
     {
-        $this->app->bindShared('commander.command.make', function($app)
+        $this->app->singleton('commander.command.make', function($app)
         {
             return $app->make('Laracasts\Commander\Console\CommanderGenerateCommand');
         });
