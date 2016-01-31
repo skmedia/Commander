@@ -41,7 +41,7 @@ class CommanderServiceProvider extends ServiceProvider {
      */
     protected function registerCommandTranslator()
     {
-        $this->app->bind('Laracasts\Commander\CommandTranslator', 'Laracasts\Commander\BasicCommandTranslator');
+        $this->app->singleton('Laracasts\Commander\CommandTranslator', 'Laracasts\Commander\BasicCommandTranslator');
     }
 
     /**
@@ -49,7 +49,7 @@ class CommanderServiceProvider extends ServiceProvider {
      */
     protected function registerCommandBus()
     {
-        $this->app->bind('Laracasts\Commander\CommandBus', function($app)
+        $this->app->singleton('Laracasts\Commander\CommandBus', function($app)
         {
             return $app->make('Laracasts\Commander\DefaultCommandBus');
         });
