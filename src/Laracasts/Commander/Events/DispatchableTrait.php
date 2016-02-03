@@ -21,6 +21,16 @@ use App;
      {
          return $this->getDispatcher()->dispatch($entity->releaseEvents());
      }
+     
+     /**
+      * @param $event
+      *
+      * @return mixed
+      */
+     public function dispatch($event)
+     {
+         return $this->getDispatcher()->dispatch([$event]);
+     }
 
      /**
       * Set the dispatcher instance.
